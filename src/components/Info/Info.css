@@ -1,0 +1,79 @@
+.info {
+  width: 100%;
+  padding-bottom: 24px;
+  background-color: #acdefc;
+  border-radius: 60px;
+  box-sizing: border-box;
+  border: 3px solid rgb(56, 140, 202);
+  box-shadow: 0 4px 8px 0 rgba(56, 140, 202, 0.6);
+  position: relative;
+  user-select: none;
+}
+
+.date {
+  width: 100%;
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.date-top,
+.date-bottom {
+  width: 100%;
+  color: #4664a4;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.name-app {
+  color: rgb(54, 161, 232);
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.info-bottom {
+  margin-top: 36px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.item-name,
+.item-count {
+  color: #067696;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+.item-count {
+  font-weight: bold;
+}
+
+.img1 {
+  width: 150px;
+  height: 150px;
+  top: 0;
+  right: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.img2 {
+  width: 160px;
+  height: 160px;
+  top: -8px;
+  left: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+}
