@@ -5,6 +5,9 @@ import img2 from "../../img/gawr-think_done.png";
 
 function Info() {
   const [tasks, setTasks] = useState([]);
+  const [countAll, setCountAll] = useState(0);
+  const [countUnfinish, setCountUnfinish] = useState(0);
+  const [countDone, setCountDone] = useState(0);
   const [count, setCount] = useState(0);
   const dayList = [
     "Monday",
@@ -72,8 +75,13 @@ function Info() {
     setTimeout(() => {
       const storageTasks = JSON.parse(localStorage.getItem("tasks"));
       setTasks(storageTasks);
+      setCountAll(tasks.length);
+      setCountUnfinish(
+        tasks.filter((task) => task.isCompleted !== true).length
+      );
+      setCountDone(tasks.filter((task) => task.isCompleted !== false).length);
       setCount(count + 1);
-    }, 300);
+    }, 200);
     return () => clearTimeout();
   }, [count]);
 
@@ -92,19 +100,15 @@ function Info() {
 
       <div className="info-bottom">
         <div className="item">
-          <div className="item-count">{tasks.length}</div>
+          <div className="item-count">{countAll}</div>
           <div className="item-name">All</div>
         </div>
         <div className="item">
-          <div className="item-count">
-            {tasks.filter((task) => task.isCompleted !== true).length}
-          </div>
+          <div className="item-count">{countUnfinish}</div>
           <div className="item-name">Unfinish</div>
         </div>
         <div className="item">
-          <div className="item-count">
-            {tasks.filter((task) => task.isCompleted !== false).length}
-          </div>
+          <div className="item-count">{countDone}</div>
           <div className="item-name">Done</div>
         </div>
       </div>
