@@ -80,20 +80,20 @@
 
 @media (max-width: 46.1875em) {
   .img1 {
-    width: 7.375em;
-    height: 7.375em;
-    top: 6px;
-    right: -6px;
+    height: 6.375em;
+    right: -12px;
+    top: 64px;
+    width: 6.375em;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
   }
 
   .img2 {
-    width: 8em;
-    height: 8em;
-    top: 0;
-    left: -12px;
+    height: 7em;
+    left: -16px;
+    top: 56px;
+    width: 7em;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;

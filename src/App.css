@@ -28,7 +28,7 @@ html {
 /* Mobile < 740px  */
 @media (max-width: 46.1875em) {
   .container {
-    min-width: 400px;
+    min-width: 350px;
     min-height: 600px;
     border-radius: 60px;
     background-color: #6fc0f0;
