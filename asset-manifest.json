@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/To-do-list-ui-gawr-gura-fontend/static/css/main.447592ad.css",
+    "main.css": "/To-do-list-ui-gawr-gura-fontend/static/css/main.26939159.css",
     "main.js": "/To-do-list-ui-gawr-gura-fontend/static/js/main.d9b5e034.js",
     "static/media/fish-bone-bg.png": "/To-do-list-ui-gawr-gura-fontend/static/media/fish-bone-bg.2d272a96dcad0081e1b9.png",
     "static/media/gawr-think_done.png": "/To-do-list-ui-gawr-gura-fontend/static/media/gawr-think_done.c4c66b67aa490d0901aa.png",
@@ -8,11 +8,11 @@
     "static/media/bloop_delete.png": "/To-do-list-ui-gawr-gura-fontend/static/media/bloop_delete.431a1ed2d5ce448d43af.png",
     "static/media/hair-clips_tick.png": "/To-do-list-ui-gawr-gura-fontend/static/media/hair-clips_tick.5637bbca58e9977f4160.png",
     "index.html": "/To-do-list-ui-gawr-gura-fontend/index.html",
-    "main.447592ad.css.map": "/To-do-list-ui-gawr-gura-fontend/static/css/main.447592ad.css.map",
+    "main.26939159.css.map": "/To-do-list-ui-gawr-gura-fontend/static/css/main.26939159.css.map",
     "main.d9b5e034.js.map": "/To-do-list-ui-gawr-gura-fontend/static/js/main.d9b5e034.js.map"
   },
   "entrypoints": [
-    "static/css/main.447592ad.css",
+    "static/css/main.26939159.css",
     "static/js/main.d9b5e034.js"
   ]
 }
