@@ -1,29 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "./FormTask.css";
 import img1 from "../../img/hair-clips_tick.png";
 import img2 from "../../img/bloop_delete.png";
 
 function FormTask({ taskProp, deleteTaskProp, editTaskProp, checkTaskProp }) {
-  const [isDone, setIsDone] = useState(taskProp.isCompleted);
+  const isDone = taskProp.isCompleted;
+  const [isLoading, setIsLoading] = useState(false);
   const [toggle, setToggle] = useState(true);
   const [text, setText] = useState(taskProp.text);
 
   const url1 = `url(${img1})`;
 
-  const endEdit = () => {
-    if (taskProp.text === "") {
-      deleteTaskProp(taskProp);
-    }
-  };
-
   return (
     <div className="form-task">
       <div
         className="btn_check"
-        onClick={() => {
-          setIsDone(!isDone);
+        onClick={(e) => {
           checkTaskProp(taskProp);
+          console.log(taskProp.isCompleted);
         }}
       >
         <div
@@ -45,20 +40,17 @@ function FormTask({ taskProp, deleteTaskProp, editTaskProp, checkTaskProp }) {
         <input
           className="btn_text-edit"
           type="text"
-          maxLength={32}
           value={text}
           onChange={(e) => setText(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.keyCode === 27) {
               editTaskProp(taskProp, text);
               setToggle(!toggle);
-              endEdit();
             }
           }}
           onBlur={() => {
             editTaskProp(taskProp, text);
             setToggle(!toggle);
-            endEdit();
           }}
           autoFocus
         />
@@ -68,6 +60,7 @@ function FormTask({ taskProp, deleteTaskProp, editTaskProp, checkTaskProp }) {
         className="btn_delete"
         onClick={(e) => {
           e.stopPropagation();
+          // console.log(isDone);
           deleteTaskProp(taskProp);
         }}
       >

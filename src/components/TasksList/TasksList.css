@@ -19,6 +19,7 @@
 .task-input_add {
   width: 100%;
   height: 40px;
+  padding-right: 36px;
   font-size: 0.9rem;
   background-color: #cde7ff;
   border-radius: 40px;
@@ -30,6 +31,11 @@
 .task-input_add:first-child {
   content: "";
   padding-left: 16px;
+}
+
+.task-input_add:last-child {
+  content: "";
+  padding-right: 16px;
 }
 
 .task-input_add::placeholder {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import FormTask from "../FormTask";
 import "./TasksList.css";
@@ -13,71 +13,63 @@ function TasksList() {
   const [statusSelect, setStatusSelect] = useState("all");
   const [statusList, setStatusList] = useState(-1);
 
+  useEffect(() => {
+    const jsonTasks = JSON.stringify(tasks);
+    localStorage.setItem("tasks", jsonTasks);
+    // console.log("fixxed");
+  }, [tasks]);
+  // console.log(tasks);
+
   const addTask = () => {
     if (task === "") return;
-    setTasks((prev) => {
-      const newTasks = [
-        ...prev,
-        {
-          id: new Date().getTime(),
-          text: task,
-          isCompleted: false,
-        },
-      ];
-
-      const jsonTasks = JSON.stringify(newTasks);
-      localStorage.setItem("tasks", jsonTasks);
-      return newTasks;
-    });
+    setTasks((prev) => [
+      ...prev,
+      {
+        id: new Date().getTime(),
+        text: task,
+        isCompleted: false,
+      },
+    ]);
     setTask("");
   };
 
   const handleDelete = (currentTask) => {
     // console.log(currentTask);
-    setTasks((prev) => {
-      const newTasks = prev.filter((task) => task.id !== currentTask.id);
-
-      const jsonTasks = JSON.stringify(newTasks);
-      localStorage.setItem("tasks", jsonTasks);
-      return newTasks;
-    });
+    setTasks((prev) => prev.filter((task) => task.id !== currentTask.id));
   };
 
   const handleEdit = (currentTask, newText) => {
-    setTasks((prev) => {
-      const newTasks = prev.map((task) => {
+    if (newText === "") {
+      handleDelete(currentTask);
+      return;
+    }
+    setTasks((prev) =>
+      prev.map((task) => {
         if (task.id === currentTask.id) return { ...task, text: newText };
         return task;
-      });
-      const jsonTasks = JSON.stringify(newTasks);
-      localStorage.setItem("tasks", jsonTasks);
-      return newTasks;
-    });
+      })
+    );
   };
 
   const handleCheck = (currentTask) => {
-    setTasks((prev) => {
-      const newTasks = prev.map((task) => {
+    setTasks((prev) =>
+      prev.map((task) => {
         if (task.id === currentTask.id)
           return { ...task, isCompleted: !currentTask.isCompleted };
         return task;
-      });
-
-      const jsonTasks = JSON.stringify(newTasks);
-      localStorage.setItem("tasks", jsonTasks);
-      return newTasks;
-    });
+      })
+    );
   };
 
   return (
     <div className="tasks-list">
       <div className="tasks-list-header">
-        <div className="task-input">
+        <div className="task-input" tabindex="1">
           <input
             type="text"
             required
             id=""
-            maxLength={32}
+            tabindex="1"
             className="task-input_add"
             placeholder="    Add your task ... :3"
             value={task}
@@ -161,7 +153,6 @@ function TasksList() {
               );
           })
         }
-        {console.log(tasks)}
       </div>
     </div>
   );

@@ -49,8 +49,9 @@
   color: #3575bd;
   font-size: 1.3rem;
   font-weight: bold;
-  overflow: inherit;
   cursor: default;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .btn_text::before {
@@ -83,4 +84,10 @@
   opacity: 0.6;
   text-decoration: line-through;
   font-style: italic;
+}
+
+@media (max-width: 46.1875em) {
+  .btn_text {
+    overflow-x: scroll;
+  }
 }
