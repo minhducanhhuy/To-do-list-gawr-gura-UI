@@ -10,13 +10,13 @@ function Info() {
   const [countDone, setCountDone] = useState(0);
   const [count, setCount] = useState(0);
   const dayList = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
   const monthList = [
     "January",
@@ -66,11 +66,10 @@ function Info() {
     "31st",
   ];
 
-  const day = dayList[new Date().getDay() - 1];
+  const day = dayList[new Date().getDay()];
   const date = dateList[new Date().getDate() - 1];
   const month = monthList[new Date().getMonth()];
   const year = new Date().getFullYear();
-
   useEffect(() => {
     setTimeout(() => {
       const storageTasks = JSON.parse(localStorage.getItem("tasks"));
